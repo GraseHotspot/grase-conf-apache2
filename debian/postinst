@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+#set -u
+
+action="$1"
+
+if [ "$action" != configure ]
+  then
+  exit 0
+fi
+
+#DEBHELPER#
+
+a2enmod rewrite || true
+a2enmod headers || true
+
+if which invoke-rc.d >/dev/null 2>&1; then
+       invoke-rc.d apache2 restart 3>&- || true
+else
+       /etc/init.d/apache2 restart 3>&- || true
+fi
+
+exit 0
