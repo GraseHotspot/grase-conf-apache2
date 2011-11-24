@@ -11,6 +11,8 @@ Architecture: all
 Depends: ${misc:Depends}, libapache2-mod-php5
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
+Replaces: grase-www-portal (<< 3.6.4)
+Breaks: grase-www-portal (<< 3.6.4)
 Description: Config files for Apache2 for the GRASE Hotspot System
  The GRASE Hotspot System binds together CoovaChilli, Freeradius, MySQL, and 
  other systems as well as providing an administrative frontend to managing 
