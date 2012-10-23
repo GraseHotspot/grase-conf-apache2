@@ -1,3 +1,13 @@
+grase-conf-apache2 (1.1) purewhite; urgency=low
+
+  * Fix for files not being found without .php being added, Debian bug that
+    caused the problem is
+    http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=589384 and attempt to get 
+    it fixed in Debian is at
+    http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=670945
+
+ -- Tim White <tim@grasehotspot.org>  Tue, 23 Oct 2012 11:37:07 +1000
+
 grase-conf-apache2 (1.0) purewhite; urgency=low
 
   * Initial release

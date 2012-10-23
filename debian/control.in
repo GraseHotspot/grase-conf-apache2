@@ -1,7 +1,7 @@
 Source: grase-conf-apache2
 Section: config
 Priority: extra
-Maintainer: Tim White <tim@hotspot.purewhite.id.au>
+Maintainer: Tim White <tim@grasehotspot.org>
 Build-Depends-Indep: @cdbs@
 Standards-Version: 3.9.1
 Homepage: http://grasehotspot.org/
