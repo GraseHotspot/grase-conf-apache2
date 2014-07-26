@@ -4,4 +4,4 @@ set -e
 
 #DEBHELPER#
 
-
+[ -l /etc/apache2/conf.d/grase-conf-apache2.conf ] && rm /etc/apache2/conf.d/grase-conf-apache2.conf
