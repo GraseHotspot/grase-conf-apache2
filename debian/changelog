@@ -1,3 +1,10 @@
+grase-conf-apache2 (1.2) UNRELEASED; urgency=medium
+
+  * If logo file missing, redirect to correct logo
+  * Prevent redirect recursion loop 
+
+ -- Tim White <tim@grasehotspot.org>  Sun, 18 May 2014 14:53:57 +1000
+
 grase-conf-apache2 (1.1) purewhite; urgency=low
 
   * Fix for files not being found without .php being added, Debian bug that
