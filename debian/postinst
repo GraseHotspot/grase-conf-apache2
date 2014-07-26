@@ -18,9 +18,7 @@ if [ -e /usr/share/apache2/apache2-maintscript-helper ] ; then
 elif  dpkg-query -f '${Version}'  -W 'apache2.2-common' > /dev/null 2>&1 ; then
         # if the configuration uses <IfVersion> uncomment the next line
         # a2enmod -q version
-        [ -d /etc/apache2/conf.d/ ] && \
-            [ ! -l /etc/apache2/conf.d/grase-conf-apache2.conf ] && \
-            ln -s ../conf-available/grase-conf-apache2.conf /etc/apache2/conf.d/grase-conf-apache2.conf
+        [ -d /etc/apache2/conf.d/ ] && [ ! -l /etc/apache2/conf.d/grase-conf-apache2.conf ] && ln -s ../conf-available/grase-conf-apache2.conf /etc/apache2/conf.d/grase-conf-apache2.conf
 fi
 
 a2enmod rewrite || true
