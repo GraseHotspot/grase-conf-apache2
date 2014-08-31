@@ -2,6 +2,7 @@ grase-conf-apache2 (1.2) UNRELEASED; urgency=medium
 
   * If logo file missing, redirect to correct logo
   * Prevent redirect recursion loop 
+  * Fix Apache config for Ubuntu 14.04
 
  -- Tim White <tim@grasehotspot.org>  Sun, 18 May 2014 14:53:57 +1000
 
