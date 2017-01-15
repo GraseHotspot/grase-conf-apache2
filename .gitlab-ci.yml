@@ -1,6 +1,5 @@
-jessie-all:
+.build_template: &build_definition
   stage: build
-  image: grase/build-images:jessie
   script:
     - dch -v $(git describe |tr '-' '.')~$(lsb_release -cs) -b ""
     - dpkg-buildpackage
@@ -11,55 +10,39 @@ jessie-all:
       - artifacts/
     expire_in: 1 week
 
-trusty-all:
-  stage: build
-  image: grase/build-images:trusty
-  script:
-    - dch -v $(git describe |tr '-' '.')~$(lsb_release -cs) -b ""
-    - dpkg-buildpackage
-    - mkdir artifacts
-    - mv -v ../grase-conf-apache2_* artifacts/
-  artifacts:
-    paths:
-      - artifacts/
-    expire_in: 1 week
-
-xenial-all:
-  stage: build
-  image: grase/build-images:xenial
-  script:
-    - dch -v $(git describe |tr '-' '.')~$(lsb_release -cs) -b ""
-    - dpkg-buildpackage
-    - mkdir artifacts
-    - mv -v ../grase-conf-apache2_* artifacts/
-  artifacts:
-    paths:
-      - artifacts/
-    expire_in: 1 week
-
-test:jessie-all:
+.test_template: &test_definition
   stage: test
-  image: debian:jessie
   script:
     - apt-get update && apt-get install -y gdebi
     - gdebi -n artifacts/*.deb
+
+
+jessie-all:
+  <<: *build_definition
+  image: grase/build-images:jessie
+
+trusty-all:
+  <<: *build_definition
+  image: grase/build-images:trusty
+
+xenial-all:
+  <<: *build_definition
+  image: grase/build-images:xenial
+
+test:jessie-all:
+  <<: *test_definition
+  image: debian:jessie
   dependencies:
     - jessie-all
 
 test:trusty-all:
-  stage: test
+  <<: *test_definition
   image: ubuntu:trusty
-  script:
-    - apt-get update && apt-get install -y gdebi
-    - gdebi -n artifacts/*.deb
   dependencies:
     - trusty-all
 
 test:xenial-all:
-  stage: test
+  <<: *test_definition
   image: ubuntu:xenial
-  script:
-    - apt-get update && apt-get install -y gdebi
-    - gdebi -n artifacts/*.deb
   dependencies:
     - xenial-all
