@@ -41,15 +41,21 @@ test:jessie-all:
   image: debian:jessie
   dependencies:
     - jessie-all
+  except:
+    - xenial
 
 test:trusty-all:
   <<: *test_definition
   image: ubuntu:trusty
   dependencies:
     - trusty-all
+  except:
+    - xenial
 
 test:xenial-all:
   <<: *test_definition
   image: ubuntu:xenial
   dependencies:
     - xenial-all
+  only:
+    - xenial
