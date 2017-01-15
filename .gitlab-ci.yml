@@ -41,7 +41,7 @@ test:jessie-all:
   stage: test
   image: debian:jessie
   script:
-    - apt-get install -y gdebi
+    - apt-get update && apt-get install -y gdebi
     - gdebi -n artifacts/*.deb
   dependencies:
     - jessie-all
@@ -50,7 +50,7 @@ test:trusty-all:
   stage: test
   image: ubuntu:trusty
   script:
-    - apt-get install -y gdebi
+    - apt-get update && apt-get install -y gdebi
     - gdebi -n artifacts/*.deb
   dependencies:
     - trusty-all
@@ -59,7 +59,7 @@ test:xenial-all:
   stage: test
   image: ubuntu:xenial
   script:
-    - apt-get install -y gdebi
+    - apt-get update && apt-get install -y gdebi
     - gdebi -n artifacts/*.deb
   dependencies:
     - xenial-all
