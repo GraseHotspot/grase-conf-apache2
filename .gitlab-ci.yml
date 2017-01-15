@@ -15,6 +15,7 @@
   script:
     - apt-get update && apt-get install -y gdebi
     - gdebi -n artifacts/*.deb
+    - curl -sv --fail localhost/grase/radmin/ > /dev/null
 
 
 jessie-all:
