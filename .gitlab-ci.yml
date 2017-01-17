@@ -22,41 +22,29 @@
 jessie-all:
   <<: *build_definition
   image: grase/build-images:jessie
-  except:
-    - xenial
 
 trusty-all:
   <<: *build_definition
   image: grase/build-images:trusty
-  except:
-    - xenial
 
 xenial-all:
   <<: *build_definition
   image: grase/build-images:xenial
-  only:
-    - xenial
 
 test:jessie-all:
   <<: *test_definition
   image: debian:jessie
   dependencies:
     - jessie-all
-  except:
-    - xenial
 
 test:trusty-all:
   <<: *test_definition
   image: ubuntu:trusty
   dependencies:
     - trusty-all
-  except:
-    - xenial
 
 test:xenial-all:
   <<: *test_definition
   image: ubuntu:xenial
   dependencies:
     - xenial-all
-  only:
-    - xenial
