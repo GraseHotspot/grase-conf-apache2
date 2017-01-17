@@ -8,7 +8,7 @@ Homepage: http://grasehotspot.org/
 
 Package: grase-conf-apache2
 Architecture: all
-Depends: ${misc:Depends}, apache2, libapache2-mod-php
+Depends: ${misc:Depends}, apache2, libapache2-mod-php | libapache2-mod-php5
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Replaces: grase-www-portal (<< 3.6.4)
