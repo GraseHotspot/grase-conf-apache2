@@ -12,6 +12,8 @@
 
 .test_template: &test_definition
   stage: test
+  environment:
+    DEBIAN_FRONTEND: noninteractive
   script:
     - apt-get update && apt-get install -y gdebi curl
     - gdebi -n artifacts/*.deb
