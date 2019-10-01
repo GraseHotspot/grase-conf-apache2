@@ -27,17 +27,17 @@ jessie-all:
   <<: *build_definition
   image: grase/build-images:jessie
 
-trusty-all:
-  <<: *build_definition
-  image: grase/build-images:trusty
+# trusty-all:
+#   <<: *build_definition
+#   image: grase/build-images:trusty
+#
+# xenial-all:
+#   <<: *build_definition
+#   image: grase/build-images:xenial
 
-xenial-all:
+bionic-all:
   <<: *build_definition
-  image: grase/build-images:xenial
-
-bionic-php56-all:
-  <<: *build_definition
-  image: grase/build-images:bionic-php56
+  image: grase/build-images:bionic
 
 # Test all the packages
 
@@ -47,20 +47,20 @@ test:jessie-all:
   dependencies:
     - jessie-all
 
-test:trusty-all:
-  <<: *test_definition
-  image: ubuntu:trusty
-  dependencies:
-    - trusty-all
+# test:trusty-all:
+#   <<: *test_definition
+#   image: ubuntu:trusty
+#   dependencies:
+#     - trusty-all
+#
+# test:xenial-all:
+#   <<: *test_definition
+#   image: ubuntu:xenial
+#   dependencies:
+#     - xenial-all
 
-test:xenial-all:
-  <<: *test_definition
-  image: ubuntu:xenial
-  dependencies:
-    - xenial-all
-
-test:bionic-php56-all:
+test:bionic-all:
   <<: *test_definition
   image: ubuntu:bionic
   dependencies:
-    - bionic-php56-all
+    - bionic-all
