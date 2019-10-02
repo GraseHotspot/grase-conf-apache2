@@ -17,10 +17,10 @@
   script:
     - apt-get update && apt-get install -y gdebi curl
     - gdebi -n artifacts/*.deb
-    - mkdir -p /usr/share/grase/www/radmin/
-    - echo '<?php phpinfo() ?>' > /usr/share/grase/www/radmin/index.php
+    - mkdir -p /usr/share/grase/symfony4/public/
+    - echo '<?php phpinfo() ?>' > /usr/share/grase/symfony4/public/index.php
     - service apache2 restart
-    - curl -sv --fail localhost/grase/radmin/ > /dev/null
+    - curl -sv --fail localhost/grase/ > /dev/null
 
 
 jessie-all:
