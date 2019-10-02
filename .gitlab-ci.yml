@@ -15,7 +15,7 @@
   variables:
     DEBIAN_FRONTEND: noninteractive
   script:
-    - apt-get update && apt-get install -y --no-install-recommends gdebi-core curl
+    - apt-get update && apt-get install -y gdebi-core curl
     - gdebi -n artifacts/*.deb
     - mkdir -p /usr/share/grase/symfony4/public/
     - echo '<?php phpinfo() ?>' > /usr/share/grase/symfony4/public/index.php
